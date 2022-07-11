@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="meteomatics" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <label>Meteomatics</label>
+            <tab>service</tab>
+            <resource>Meteomatics_Weather::conifig</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General</label>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enabled</label>
+                    <comment>Enable or disable module.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cron" translate="label comment" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Update data</label>
+                    <comment>Select configuration for CRON job.</comment>
+                    <source_model>Meteomatics\Weather\Model\Config\Source\Cron</source_model>
+                </field>
+            </group>
+            <group id="webapi" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Web API security</label>
+                <field id="server" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>API server</label>
+                    <comment>Enter URL for API server.</comment>
+                </field>
+                <field id="login" translate="label comment" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Login</label>
+                    <comment>Enter login for API server.</comment>
+                </field>
+                <field id="password" translate="label comment" type="obscure" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Password</label>
+                    <comment>Enter password for API server.</comment>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="latitude" translate="label comment" type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Latitude</label>
+                    <comment>Enter latitude position.</comment>
+                </field>
+                <field id="longitude" translate="label comment" type="text" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Longitude</label>
+                    <comment>Enter longitude position.</comment>
+                </field>
+                <field id="format" translate="label comment" type="select" sortOrder="60" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Data format</label>
+                    <comment>Select API format.</comment>
+                    <source_model>Meteomatics\Weather\Model\Config\Source\Format</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

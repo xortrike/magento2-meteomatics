@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Meteomatics\Weather\Api\Data\WeatherInterface" type="Meteomatics\Weather\Model\Weather"/>
+    <virtualType name="Meteomatics\Weather\Model\ResourceModel\Group\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">meteomatics</argument>
+            <argument name="resourceModel" xsi:type="string">
+                Meteomatics\Weather\Model\ResourceModel\Weather\Collection
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="meteomatics_index_listing_data_source" xsi:type="string">
+                    Meteomatics\Weather\Model\ResourceModel\Group\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>
